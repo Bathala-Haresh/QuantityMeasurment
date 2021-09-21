@@ -12,6 +12,9 @@ public class Inch {
     public double getInchToFeet() {
         return value / 12;
     }
+    public double getInchToYard(){
+        return value / 36;
+    }
 
     @Override
     public boolean equals(Object o) {

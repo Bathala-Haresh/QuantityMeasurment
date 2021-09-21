@@ -12,6 +12,9 @@ public class Feet {
     public double getFeetToInch() {
         return value * 12;
     }
+    public double getFeetToYard(){
+        return value / 3;
+    }
 
     @Override
     public boolean equals(Object o) {
