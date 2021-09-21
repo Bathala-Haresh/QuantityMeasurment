@@ -1,7 +1,5 @@
 package com.example;
 
-import java.util.Objects;
-
 public class Length {
 
     private final Unit unit;
@@ -37,6 +35,18 @@ public class Length {
         if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.Centi_Meter))
             return Double.compare(this.value * Inch_To_CM, that.value) == 0;
         return false;
+    }
+    public Length add(Length that){
+        double sum = 0;
+        if(this.unit.equals(Unit.INCH) && that.unit.equals(Unit.INCH))
+            sum = this.value + that.value;
+        else if(this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
+            sum = this.value * Feet_To_Inch + that.value;
+        else if(this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
+            sum = this.value * Feet_To_Inch + that.value * Feet_To_Inch;
+        else if(this.unit.equals(Unit.INCH) && that.unit.equals(Unit.Centi_Meter))
+            sum = this.value + that.value / Inch_To_CM;
+        return new Length(Unit.INCH,sum);
     }
 
     @Override
