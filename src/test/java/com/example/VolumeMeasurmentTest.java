@@ -33,12 +33,6 @@ public class VolumeMeasurmentTest {
         Assertions.assertNotSame(gallon1, gallon2);
     }
 
-    @Test
-    public void given1GallonAnd1FeetFromDiffType_ShouldReturnNotEqual() {
-        Volume volume = new Volume(Volume.Unit.GALLON, 1.0);
-        Length length = new Length(Length.Unit.FEET, 1.0);
-        Assertions.assertNotEquals(volume, length);
-    }
 
     @Test
     public void give0LiterAnd0Liter_ShouldReturnEqualVolume() {
@@ -69,7 +63,6 @@ public class VolumeMeasurmentTest {
         boolean compareCheck = gallon.compare(liter);
         Assertions.assertTrue(compareCheck);
     }
-
     @Test
     public void given1LiterAnd1000MilliLiter_WhenCompared_ShouldReturnEqualVolume() {
         Volume liter = new Volume(Volume.Unit.LITER, 1.0);
@@ -100,6 +93,22 @@ public class VolumeMeasurmentTest {
         Volume liter = new Volume(Volume.Unit.LITER, 1.0);
         boolean compareCheck = ml.compare(liter);
         Assertions.assertTrue(compareCheck);
+    }
+    @Test
+    public void given1Gallonand3$78LitersWhenAdded_shouldReturn7$56Liters(){
+        Volume gallon = new Volume(Volume.Unit.GALLON,1);
+        Volume liters = new Volume(Volume.Unit.LITER,3.78);
+        Volume expected = new Volume(Volume.Unit.LITER,7.56);
+        Volume actual = gallon.sum(liters);
+        Assertions.assertEquals(expected,actual);
+    }
+    @Test
+    public void given1LiterAnd1000MilliLiter_WhenAdded_ShouldReturn2Liter() {
+        Volume liter = new Volume(Volume.Unit.LITER, 1.0);
+        Volume ml = new Volume(Volume.Unit.Milli_Liter, 1000.0);
+        Volume expectedSum = new Volume(Volume.Unit.LITER, 2.0);
+        Volume actualSum = liter.sum(ml);
+        Assertions.assertEquals(expectedSum, actualSum);
     }
 
 }

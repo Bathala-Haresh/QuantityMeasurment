@@ -1,11 +1,14 @@
 package com.example;
 
+import java.util.Objects;
+
 public class Volume {
 
     private static final double GALLON_TO_LITER = 3.78;
     private static final double LITER_TO_ML = 1000.0;
     private final double value;
     private final Unit unit;
+
 
     enum Unit {
         GALLON, LITER, Milli_Liter
@@ -29,7 +32,14 @@ public class Volume {
             return Double.compare(this.value, that.value * LITER_TO_ML) == 0;
         return false;
     }
-
+    public Volume sum(Volume that) {
+        double result = 0.0;
+        if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITER))
+            result = this.value * GALLON_TO_LITER + that.value;
+        if (this.unit.equals(Unit.LITER) && that.unit.equals(Unit.Milli_Liter))
+            result = this.value + that.value / LITER_TO_ML;
+        return new Volume(Unit.LITER, result);
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,4 +47,5 @@ public class Volume {
         Volume volume = (Volume) o;
         return Double.compare(volume.value, value) == 0 && unit == volume.unit;
     }
+
 }
