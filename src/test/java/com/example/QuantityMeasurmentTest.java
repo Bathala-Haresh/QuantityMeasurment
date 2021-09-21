@@ -8,135 +8,148 @@ public class QuantityMeasurmentTest {
 
     @Test
     public void given0Feetand0Feet_shouldReturnEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0.0);
+        Length feet1 = new Length(Length.Unit.FEET,0.0);
+        Length feet2 = new Length(Length.Unit.FEET,0.0);
         Assertions.assertEquals(feet1, feet2);
     }
 
     @Test
     public void given0Feetand0Feet_shouldReturnNotEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(1.0);
+        Length feet1 = new Length(Length.Unit.FEET,0.0);
+        Length feet2 = new Length(Length.Unit.FEET,1.0);
         Assertions.assertNotEquals(feet1, feet2);
     }
 
     @Test
     public void given0FeetandNull_shouldReturnNotEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = null;
+        Length feet1 = new Length(Length.Unit.FEET,0.0);
+        Length feet2 = null;
         Assertions.assertNotEquals(feet1, feet2);
     }
 
     @Test
     public void given0Feetand0FeetwithDifferentReference_shouldReturnNotSame() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0.0);
+        Length feet1 = new Length(Length.Unit.FEET,0.0);
+        Length feet2 = new Length(Length.Unit.FEET,0.0);
         Assertions.assertNotSame(feet1, feet2);
     }
 
     @Test
     public void given0Feetand0FeetwithDifferentType_shouldReturnNotEqual() {
-        Feet feet1 = new Feet(0.0);
-        Feet feet2 = new Feet(0);
+        Length feet1 = new Length(Length.Unit.FEET,0.0);
+        Length feet2 = new Length(Length.Unit.FEET,0);
         Assertions.assertNotSame(feet1, feet2);
     }
 
     @Test
     public void given0Inchand0Inch_shouldReturnEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0.0);
+        Length inch1 = new Length(Length.Unit.INCH,0.0);
+        Length inch2 = new Length(Length.Unit.INCH,0.0);
         Assertions.assertEquals(inch1, inch2);
     }
 
     @Test
     public void given0Inchand0Inch_shouldReturnNotEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(1.0);
+        Length inch1 = new Length(Length.Unit.INCH,0.0);
+        Length inch2 = new Length(Length.Unit.INCH,1.0);
         Assertions.assertNotEquals(inch1, inch2);
     }
 
     @Test
     public void given0InchandNull_shouldReturnNotEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = null;
+        Length inch1 = new Length(Length.Unit.INCH,0.0);
+        Length inch2 = null;
         Assertions.assertNotEquals(inch1, inch2);
     }
 
     @Test
     public void given0Inchand0InchwithDifferentReference_shouldReturnNotSame() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0.0);
+        Length inch1 = new Length(Length.Unit.INCH,0.0);
+        Length inch2 = new Length(Length.Unit.INCH,0.0);
         Assertions.assertNotSame(inch1, inch2);
     }
 
     @Test
     public void given0Inchand0InchwithDifferentType_shouldReturnNotEqual() {
-        Inch inch1 = new Inch(0.0);
-        Inch inch2 = new Inch(0);
+        Length inch1 = new Length(Length.Unit.INCH,0.0);
+        Length inch2 = new Length(Length.Unit.INCH,0);
         Assertions.assertNotSame(inch1, inch2);
     }
-
     @Test
-    public void given1Feetand12Inch_shouldReturnEqual() {
-        Feet feet1 = new Feet(1);
-        double actualValue = feet1.getFeetToInch();
-        double expectedValue = 12;
-        Assertions.assertEquals(actualValue, expectedValue);
+    public void given1Feetand1InchWhenCompared_shouldReturnNotEqual(){
+        Length feet = new Length(Length.Unit.FEET,1.0);
+        Length inch = new Length(Length.Unit.INCH,1.0);
+        Assertions.assertNotEquals(feet,inch);
     }
 
     @Test
-    public void given1Feetand24Inch_shouldReturnFalse() {
-        Feet feet1 = new Feet(1.0);
-        double actualValue = feet1.getFeetToInch();
-        double expectedValue = 24;
-        Assertions.assertNotEquals(actualValue, expectedValue);
+    public void given1Feetand12Inch_shouldReturnTrue() {
+        Length feet = new Length(Length.Unit.FEET,1);
+        Length inch = new Length(Length.Unit.INCH,12);
+        boolean compareCheck = feet.compare(inch);
+        Assertions.assertTrue(compareCheck);
+    }
+    @Test
+    public void given12Inchand1Feet_shouldReturnTrue() {
+        Length inch = new Length(Length.Unit.INCH,12);
+        Length feet = new Length(Length.Unit.FEET,1);
+        boolean compareCheck = inch.compare(feet);
+        Assertions.assertTrue(compareCheck);
+    }
+
+
+    @Test
+    public void given1Yardand3FeetWhenCompared_shouldReturnTrue() {
+        Length yard = new Length(Length.Unit.YARD,1);
+        Length feet = new Length(Length.Unit.FEET,3);
+        boolean compareCheck = yard.compare(feet);
+        Assertions.assertTrue(compareCheck);
     }
 
     @Test
-    public void given1Yardand3FeetWhenCompared_shouldReturnEqual() {
-        Yard yard1 = new Yard(1.0);
-        double actualValue = yard1.yardToFeet();
-        double expectedValue = 3;
-        Assertions.assertEquals(actualValue, expectedValue);
+    public void given3Feetand1YardWhenCompared_shouldReturnTrue() {
+        Length feet = new Length(Length.Unit.FEET,3);
+        Length yard = new Length(Length.Unit.YARD,1);
+        boolean compareCheck = feet.compare(yard);
+        Assertions.assertTrue(compareCheck);
     }
 
     @Test
-    public void given3Feetand1YardWhenCompared_shouldReturnEqual() {
-        Feet feet = new Feet(3.0);
-        double expectedValue = feet.getFeetToYard();
-        double actualValue = 1;
-        Assertions.assertEquals(actualValue, expectedValue);
+    public void given1Feetand1YardWhenCompared_shouldReturnFalse() {
+        Length feet = new Length(Length.Unit.FEET,1);
+        Length yard = new Length(Length.Unit.YARD,1);
+        boolean compareCheck = feet.compare(yard);
+        Assertions.assertFalse(compareCheck);
     }
 
     @Test
-    public void given1Feetand1YardWhenCompared_shouldReturnNotEqual() {
-        Feet feet = new Feet(1.0);
-        double expectedValue = feet.getFeetToYard();
-        double actualValue = 1;
-        Assertions.assertNotEquals(expectedValue, actualValue);
+    public void given1Inchand1YardWhenCompared_shouldReturnFalse() {
+        Length inch = new Length(Length.Unit.INCH,1);
+        Length yard = new Length(Length.Unit.YARD,1);
+        boolean compareCheck = inch.compare(yard);
+        Assertions.assertFalse(compareCheck);
     }
 
     @Test
-    public void given1Inchand1YardWhenCompared_shouldReturnNotEqual() {
-        Inch inch = new Inch(1.0);
-        double expectedValue = inch.getInchToYard();
-        double actualValue = 1;
-        Assertions.assertNotEquals(expectedValue, actualValue);
+    public void given1Yardand36InchWhenCompared_shouldReturnTrue() {
+        Length yard = new Length(Length.Unit.YARD,1);
+        Length inch = new Length(Length.Unit.INCH,36);
+        boolean compareCheck = yard.compare(inch);
+        Assertions.assertTrue(compareCheck);
     }
 
     @Test
-    public void given1Yardand36InchWhenCompared_shouldReturnEqual() {
-        Yard yard = new Yard(1.0);
-        double expectedValue = yard.yardToInch();
-        double actualValue = 36;
-        Assertions.assertEquals(actualValue, expectedValue);
+    public void given36Inchand1YardWhenCompared_shouldReturnTrue() {
+        Length inch = new Length(Length.Unit.INCH,36);
+        Length yard = new Length(Length.Unit.YARD,1);
+        boolean compareCheck = inch.compare(yard);
+        Assertions.assertTrue(compareCheck);
     }
-
     @Test
-    public void given36Inchand1YardWhenCompared_shouldReturnEqual() {
-        Inch inch = new Inch(36);
-        double expectedValue = inch.getInchToYard();
-        double actualValue = 1;
-        Assertions.assertEquals(actualValue, expectedValue);
+    public void given1Inchand1InchWhenCompared_shouldReturnTrue() {
+        Length inch1 = new Length(Length.Unit.INCH,1);
+        Length inch2 = new Length(Length.Unit.INCH,1);
+        boolean compareCheck = inch1.compare(inch2);
+        Assertions.assertTrue(compareCheck);
     }
 }
