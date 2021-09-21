@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.QuantityMeasurmentTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-09-21T05:57:56" hostname="DESKTOP-M71IR21" time="0.014">
+  <properties/>
+  <testcase name="given0Feetand0Feet_shouldReturnEqual" classname="com.example.QuantityMeasurmentTest" time="0.009"/>
+  <testcase name="given0Inchand0InchwithDifferentReference_shouldReturnNotSame" classname="com.example.QuantityMeasurmentTest" time="0.001"/>
+  <testcase name="given1Feetand24Inch_shouldReturnFalse" classname="com.example.QuantityMeasurmentTest" time="0.001"/>
+  <testcase name="given0InchandNull_shouldReturnNotEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given0Inchand0Inch_shouldReturnNotEqual" classname="com.example.QuantityMeasurmentTest" time="0.001"/>
+  <testcase name="given0Inchand0InchwithDifferentType_shouldReturnNotEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given0Inchand0Inch_shouldReturnEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given1Feetand12Inch_shouldReturnEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given0Feetand0FeetwithDifferentType_shouldReturnNotEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given0Feetand0Feet_shouldReturnNotEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given0FeetandNull_shouldReturnNotEqual" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <testcase name="given0Feetand0FeetwithDifferentReference_shouldReturnNotSame" classname="com.example.QuantityMeasurmentTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
