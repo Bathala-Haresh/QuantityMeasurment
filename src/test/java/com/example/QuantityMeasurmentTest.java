@@ -86,11 +86,57 @@ public class QuantityMeasurmentTest {
 
     @Test
     public void given1Feetand24Inch_shouldReturnFalse() {
-        Feet feet1 = new Feet(1);
+        Feet feet1 = new Feet(1.0);
         double actualValue = feet1.getFeetToInch();
         double expectedValue = 24;
         Assertions.assertNotEquals(actualValue, expectedValue);
     }
 
+    @Test
+    public void given1Yardand3FeetWhenCompared_shouldReturnEqual() {
+        Yard yard1 = new Yard(1.0);
+        double actualValue = yard1.yardToFeet();
+        double expectedValue = 3;
+        Assertions.assertEquals(actualValue, expectedValue);
+    }
 
+    @Test
+    public void given3Feetand1YardWhenCompared_shouldReturnEqual() {
+        Feet feet = new Feet(3.0);
+        double expectedValue = feet.getFeetToYard();
+        double actualValue = 1;
+        Assertions.assertEquals(actualValue, expectedValue);
+    }
+
+    @Test
+    public void given1Feetand1YardWhenCompared_shouldReturnNotEqual() {
+        Feet feet = new Feet(1.0);
+        double expectedValue = feet.getFeetToYard();
+        double actualValue = 1;
+        Assertions.assertNotEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    public void given1Inchand1YardWhenCompared_shouldReturnNotEqual() {
+        Inch inch = new Inch(1.0);
+        double expectedValue = inch.getInchToYard();
+        double actualValue = 1;
+        Assertions.assertNotEquals(expectedValue, actualValue);
+    }
+
+    @Test
+    public void given1Yardand36InchWhenCompared_shouldReturnEqual() {
+        Yard yard = new Yard(1.0);
+        double expectedValue = yard.yardToInch();
+        double actualValue = 36;
+        Assertions.assertEquals(actualValue, expectedValue);
+    }
+
+    @Test
+    public void given36Inchand1YardWhenCompared_shouldReturnEqual() {
+        Inch inch = new Inch(36);
+        double expectedValue = inch.getInchToYard();
+        double actualValue = 1;
+        Assertions.assertEquals(actualValue, expectedValue);
+    }
 }
