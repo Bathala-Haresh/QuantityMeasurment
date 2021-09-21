@@ -9,9 +9,10 @@ public class Length {
     private static final double Feet_To_Inch = 12;
     private static final double Yard_To_Feet = 3;
     private static final double Yard_To_Inch =36;
+    private static final double Inch_To_CM = 2.54;
 
     enum Unit {
-        FEET, INCH, YARD
+        FEET, INCH, YARD , Centi_Meter
     };
 
     public Length(Unit unit, double value) {
@@ -33,6 +34,8 @@ public class Length {
             return Double.compare(this.value, that.value * Yard_To_Inch) == 0;
         if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
             return Double.compare(this.value * Yard_To_Inch, that.value) == 0;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.Centi_Meter))
+            return Double.compare(this.value * Inch_To_CM, that.value) == 0;
         return false;
     }
 

@@ -152,4 +152,12 @@ public class QuantityMeasurmentTest {
         boolean compareCheck = inch1.compare(inch2);
         Assertions.assertTrue(compareCheck);
     }
+
+    @Test
+    public void given2Inchand5CMWhenCompared_shouldReturnTrue(){
+        Length inch = new Length(Length.Unit.INCH,2.0);
+        Length cm = new Length(Length.Unit.Centi_Meter,5.08);
+        boolean compareCheck = inch.compare(cm);
+        Assertions.assertTrue(compareCheck);
+    }
 }
