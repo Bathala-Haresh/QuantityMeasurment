@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.VolumeMeasurmentTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2021-09-21T19:42:06" hostname="DESKTOP-M71IR21" time="0.007">
+  <properties/>
+  <testcase name="given1GallonAnd2Gallon_ShouldReturnNotEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.004"/>
+  <testcase name="given1GallonAndNull_ShouldReturnNotEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given3$78LiterAnd1Gallon_WhenCompared_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.001"/>
+  <testcase name="give1LiterAnd2Liter_ShouldReturnNotEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given1GallonAnd1FeetFromDiffType_ShouldReturnNotEqual" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given1GallonAnd3$78Liter_WhenCompared_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given1LiterAnd1000MilliLiter_WhenCompared_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.001"/>
+  <testcase name="given0GallonAnd0Liter_WhenCompared_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given1GallonAnd1GallonFromDiffRef_ShouldReturnNotEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="give0LiterAnd0Liter_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given1000MilliLiterAnd1Liter_WhenCompared_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given0GallonAnd0Gallon_ShouldReturnEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <testcase name="given1GallonAnd1Liter_WhenCompared_ShouldReturnNotEqualVolume" classname="com.example.VolumeMeasurmentTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
