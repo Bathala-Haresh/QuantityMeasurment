@@ -32,6 +32,7 @@ public class Volume {
             return Double.compare(this.value, that.value * LITER_TO_ML) == 0;
         return false;
     }
+
     public Volume sum(Volume that) {
         double result = 0.0;
         if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITER))
@@ -40,6 +41,7 @@ public class Volume {
             result = this.value + that.value / LITER_TO_ML;
         return new Volume(Unit.LITER, result);
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
