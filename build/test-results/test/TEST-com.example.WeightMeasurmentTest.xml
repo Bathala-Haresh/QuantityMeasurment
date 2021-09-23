@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.WeightMeasurmentTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-09-22T05:24:42" hostname="DESKTOP-M71IR21" time="0.004">
+<testsuite name="com.example.WeightMeasurmentTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-09-23T14:17:45" hostname="DESKTOP-M71IR21" time="0.008">
   <properties/>
-  <testcase name="given0GramAnd0GramFromDiffType_ShouldReturnNotEqualWeight" classname="com.example.WeightMeasurmentTest" time="0.003"/>
+  <testcase name="given0GramAnd0GramFromDiffType_ShouldReturnNotEqualWeight" classname="com.example.WeightMeasurmentTest" time="0.004"/>
   <testcase name="given1Tonneand1000GramsWhenAdded_shouldReturn1001Kg" classname="com.example.WeightMeasurmentTest" time="0.0"/>
   <testcase name="given0GramAnd1Gram_ShouldReturnNotEqual" classname="com.example.WeightMeasurmentTest" time="0.0"/>
   <testcase name="given0GramAndNull_ShouldReturnNotEqual" classname="com.example.WeightMeasurmentTest" time="0.0"/>
