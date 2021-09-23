@@ -2,50 +2,18 @@ package com.example;
 
 import java.util.Objects;
 
-public class Volume {
+public enum Volume implements Units{
+    MILLI_LITER(0.001),LITER(1),GALLON(3.78);
 
-    private static final double GALLON_TO_LITER = 3.78;
-    private static final double LITER_TO_ML = 1000.0;
-    private final double value;
-    private final Unit unit;
+    private final double baseUnitConvertor;
 
-
-    enum Unit {
-        GALLON, LITER, Milli_Liter
+    Volume(double baseUnitConvertor){
+        this.baseUnitConvertor = baseUnitConvertor;
     }
 
-    public Volume(Unit unit, double value) {
-        this.unit = unit;
-        this.value = value;
-    }
 
-    public boolean compare(Volume that) {
-        if (this.unit.equals(that.unit))
-            return this.equals(that);
-        if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITER))
-            return Double.compare(this.value * GALLON_TO_LITER, that.value) == 0;
-        if (this.unit.equals(Unit.LITER) && that.unit.equals(Unit.GALLON))
-            return Double.compare(this.value, that.value * GALLON_TO_LITER) == 0;
-        if (this.unit.equals(Unit.LITER) && that.unit.equals(Unit.Milli_Liter))
-            return Double.compare(this.value * LITER_TO_ML, that.value) == 0;
-        if (this.unit.equals(Unit.Milli_Liter) && that.unit.equals(Unit.LITER))
-            return Double.compare(this.value, that.value * LITER_TO_ML) == 0;
-        return false;
-    }
-    public Volume sum(Volume that) {
-        double result = 0.0;
-        if (this.unit.equals(Unit.GALLON) && that.unit.equals(Unit.LITER))
-            result = this.value * GALLON_TO_LITER + that.value;
-        if (this.unit.equals(Unit.LITER) && that.unit.equals(Unit.Milli_Liter))
-            result = this.value + that.value / LITER_TO_ML;
-        return new Volume(Unit.LITER, result);
-    }
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Volume volume = (Volume) o;
-        return Double.compare(volume.value, value) == 0 && unit == volume.unit;
+    public double convertToBaseUnit(QuantityMeasurment obj) {
+        return obj.value * baseUnitConvertor;
     }
-
 }
